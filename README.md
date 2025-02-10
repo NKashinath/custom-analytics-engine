@@ -3,7 +3,7 @@ This project tracks API usage and provides analytics. Its all to do with dev so 
 
 1. Clone the repository:
    ```sh
-   git clone <your-github-repo-url>
+   git clone https://github.com/NKashinath/custom-analytics-engine.git
    cd your-project-folder
 2. Run npm install
    ```sh
