@@ -1,0 +1,53 @@
+
+###Test API###
+GET http://localhost:3000/
+
+###Generate Token###
+POST http://localhost:3000/generatetoken
+Content-Type: application/json
+
+{
+    "userId":"AnalyticsEngineUser"
+}
+
+
+###AddLogs###
+#***Only works with token generated with "AnalyticsEngineUser" user (AdminUser)***** 
+#endpoints like "/posts, /comments, /orders, /ratings "
+#Authorization only applied for POST requests"
+POST http://localhost:3000/logs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJBbmFseXRpY3NFbmdpbmVVc2VyIiwiaWF0IjoxNzM5MDk2NjM2LCJleHAiOjE3MzkxMDAyMzZ9.ScROz6UkqW4tyv9iVjzMXxS-bIT0qywwq9gLVlPOlfw
+
+{
+    "endpoint": "/orders",
+    "method": "GET"
+}
+
+
+###GetLogs-ALL###
+GET http://localhost:3000/logs
+
+
+###AddLogs - Start and End Date###
+## Filtering ##
+GET http://localhost:3000/logs?startDate=2025-02-08
+
+
+###AddLogs - StartDate, endDate, endpoint and userId###
+# Filtering #
+GET http://localhost:3000/logs?startDate=2025-02-08&endDate=2025-02-09&endpoint=/posts&userId=448ca412-e4c9-4901-bead-56b9098e41be
+
+###AddLogs - StartDate, endDate, endpoint and userId###
+# Filtering & Pagination #
+GET http://localhost:3000/logs?page=1&limit=100
+
+
+### Total # of requests per endpoint
+### Most fequently accessed endpoint
+GET http://localhost:3000/analytics/summary
+
+
+### Total requests made by the user
+### List of endpoints made by the user
+GET http://localhost:3000/analytics/user/c2773456-ee32-4811-970e-47879d1a1a96

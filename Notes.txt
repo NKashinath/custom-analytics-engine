@@ -1,0 +1,19 @@
+
+1. Generating uuid of v4 becz this will give fully random id
+2. Declared index only for endpoint, userid and timestamp becz we are querying it most
+3. Added additional authorization as a middleware using JsonWebToken. details are in apiRequests.http
+4. For archiving given an option to archive based on predefined days
+5. I did used on common module and not ES
+6. Differentiated code into differnt folders for ease
+7. In analytics routers
+    a. for route "/user/:userId" i used {$match: {userId}} first then the grouping to imporvise the 
+    performance. Becz the next grouping works on this filtered output rather than entire documents
+8. In log routers
+    a. used the appropriate aggregate method as required
+9. Error Handling is done, set the pooling for db connections
+10. Did not handled middleware for get requests
+11. Post request need authorization as mentioned in apis
+12. timestamp in model is set to index -1 so that newly created will be on the top for easy access
+13. we can make use of cluster module to create multiple threads based on the cpu cores
+14. used insertMany and deleteMany methods to performance improvment
+15. I was not aware of express-rate-limit but i went over it on npm and used it.
