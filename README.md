@@ -5,6 +5,10 @@ This project tracks API usage and provides analytics. Its all to do with dev so 
    ```sh
    git clone <your-github-repo-url>
    cd your-project-folder
-2. Run "npm install"
+2. Run npm install
+   ```sh
+   npm install
 
-3. Run "npm start"
+4. Run npm start
+   ```sh
+   npm start
